@@ -1,7 +1,17 @@
 # == REQUIRED VARS
 
 variable "name" {
-  description = "Name of this ECS cluster."
+  description = "Name of this ECS application."
+}
+
+variable "cluster_name" {
+  description = "Name of existing ECS cluster or name of new ECS cluster."
+}
+
+variable "create_cluster" {
+  type        = bool
+  default     = true
+  description = "If we should create a new cluster, if false will look up existing cluster based on cluster_name"
 }
 
 variable "instance_types" {

@@ -16,7 +16,7 @@ resource "aws_cloudwatch_metric_alarm" "ecs_high_memory" {
   treat_missing_data        = "ignore"
 
   dimensions = {
-    ClusterName = aws_ecs_cluster.ecs.name
+    ClusterName = data.aws_ecs_cluster.ecs.cluster_name
   }
 }
 
@@ -38,6 +38,6 @@ resource "aws_cloudwatch_metric_alarm" "ecs_high_cpu" {
   treat_missing_data        = "ignore"
 
   dimensions = {
-    ClusterName = aws_ecs_cluster.ecs.name
+    ClusterName = data.aws_ecs_cluster.ecs.cluster_name
   }
 }

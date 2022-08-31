@@ -59,15 +59,15 @@ output "ecs_task_iam_role_name" {
 }
 
 output "ecs_id" {
-  value = aws_ecs_cluster.ecs.id
+  value = data.aws_ecs_cluster.ecs.id
 }
 
 output "ecs_arn" {
-  value = aws_ecs_cluster.ecs.arn
+  value = data.aws_ecs_cluster.ecs.arn
 }
 
 output "ecs_name" {
-  value = aws_ecs_cluster.ecs.name
+  value = data.aws_ecs_cluster.ecs.cluster_name
 }
 
 output "alb_listener_https_arn" {
