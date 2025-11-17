@@ -22,4 +22,10 @@ resource "aws_ecs_cluster_capacity_providers" "ecs" {
     "FARGATE",
     "FARGATE_SPOT"
   ])
+
+  default_capacity_provider_strategy {
+    capacity_provider = var.fargate_only ? "FARGATE" : try(aws_ecs_capacity_provider.ecs_capacity_provider[0].name, "FARGATE")
+    weight            = 1
+    base              = 1
+  }
 }
