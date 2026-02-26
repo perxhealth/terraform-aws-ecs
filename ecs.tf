@@ -1,5 +1,6 @@
 data "aws_ecs_cluster" "ecs" {
   cluster_name = var.cluster_name
+  depends_on = [aws_ecs_cluster.ecs]
 }
 
 resource "aws_ecs_cluster" "ecs" {
